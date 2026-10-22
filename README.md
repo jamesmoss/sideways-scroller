@@ -1,6 +1,6 @@
 # sideways-scroller
 
-A deliberately small browser arcade game for an AI development factory workshop.
+A deliberately small browser arcade game.
 Plain rectangles, TypeScript, Vite and Canvas. No backend, accounts, assets, sound,
 external APIs or runtime downloads. Use this skeleton as a starting point.
 
@@ -14,7 +14,7 @@ npm run dev
 ```
 
 Open the local URL printed by Vite. The first successful install generates
-`package-lock.json`; commit it, then use `npm ci` for reproducible workshop installs.
+`package-lock.json`; commit it, then use `npm ci` for reproducible installs.
 
 ```sh
 npm test             # automated tests, one run
@@ -35,7 +35,7 @@ Installation needs the npm registry; the running game needs no external services
 
 The play area receives keyboard focus on load and restart. Click it to regain
 focus after using another control. Losing focus releases held keys. Keyboard
-controls are required; touch controls are a possible workshop extension.
+controls are required; touch controls are a possible extension.
 
 ## Code map
 
