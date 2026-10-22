@@ -63,93 +63,109 @@ also meets a projectile in the same simulation step.
 
 Choose one small change per ticket; keep acceptance criteria observable.
 
-1. **Pause button.** Add Pause/Resume. Acceptance: positions, score and spawn/fire
+1. **Pick a theme.** Choose a setting such as space, underwater or sky.
+   Acceptance: the page title and README intro name the theme.
+2. **Theme colour palette.** Replace the default colours in `src/config.ts`.
+   Acceptance: player, targets, projectiles and background all match the theme.
+3. **Player artwork.** Draw the player as a themed shape, such as a ship or fish.
+   Acceptance: the drawing fits inside the existing hitbox; collisions are unchanged.
+4. **Target artwork.** Draw targets as themed enemies, such as asteroids.
+   Acceptance: they stay distinct from the player and keep their hitbox size.
+5. **Projectile artwork.** Restyle projectiles as lasers, bubbles or similar.
+   Acceptance: they stay visible against the background and keep their hitbox size.
+6. **Themed background.** Draw a themed scene behind the play area. Acceptance:
+   it renders behind all objects and keeps the 960 × 540 proportions.
+7. **Themed destruction effect.** Show an explosion or similar when a target is
+   destroyed. Acceptance: it fades within half a second without affecting play.
+8. **Themed text and HUD.** Restyle the score and game over text. Acceptance: text
+   stays readable at all window sizes and the game over message fits the theme.
+9. **Pause button.** Add Pause/Resume. Acceptance: positions, score and spawn/fire
    timers stop while paused; resuming continues the same game without a jump.
-2. **Player colour picker.** Add three colour choices. Acceptance: selecting one
-   immediately changes the player rectangle without changing gameplay.
-3. **Best score.** Display a local best score. Acceptance: it updates when beaten
-   and remains visible after restart and a browser reload.
-4. **Missed-target counter.** Show how many targets escaped. Acceptance: each target
-   crossing the left edge adds one; destroyed targets do not; restart resets it.
-5. **Touch controls.** Add four movement buttons and a fire button. Acceptance:
-   holding a button acts like its keyboard equivalent and releasing stops it.
-6. **Lives.** Give the player three lives. Acceptance: touching a target removes
-   one life and clears nearby targets; game over happens only at zero lives.
-7. **Difficulty ramp.** Spawn targets faster over time. Acceptance: spawn interval
-   shortens every 15 seconds down to a fixed minimum; restart resets it.
-8. **Start screen.** Show a title and "Press Space to start". Acceptance: nothing
-   moves or spawns until the player starts; restart returns to play directly.
-9. **Score popups.** Show "+1" where a target is destroyed. Acceptance: the text
-   floats upward and fades within one second without affecting collisions.
-10. **Target variety.** Add a larger, slower target worth three points. Acceptance:
+10. **Player colour picker.** Add three colour choices. Acceptance: selecting one
+    immediately changes the player rectangle without changing gameplay.
+11. **Best score.** Display a local best score. Acceptance: it updates when beaten
+    and remains visible after restart and a browser reload.
+12. **Missed-target counter.** Show how many targets escaped. Acceptance: each target
+    crossing the left edge adds one; destroyed targets do not; restart resets it.
+13. **Touch controls.** Add four movement buttons and a fire button. Acceptance:
+    holding a button acts like its keyboard equivalent and releasing stops it.
+14. **Lives.** Give the player three lives. Acceptance: touching a target removes
+    one life and clears nearby targets; game over happens only at zero lives.
+15. **Difficulty ramp.** Spawn targets faster over time. Acceptance: spawn interval
+    shortens every 15 seconds down to a fixed minimum; restart resets it.
+16. **Start screen.** Show a title and "Press Space to start". Acceptance: nothing
+    moves or spawns until the player starts; restart returns to play directly.
+17. **Score popups.** Show "+1" where a target is destroyed. Acceptance: the text
+    floats upward and fades within one second without affecting collisions.
+18. **Target variety.** Add a larger, slower target worth three points. Acceptance:
     it spawns less often than normal targets and needs two hits to destroy.
-11. **Elapsed timer.** Display survival time. Acceptance: it counts in seconds
+19. **Elapsed timer.** Display survival time. Acceptance: it counts in seconds
     during play, stops at game over and resets on restart.
-12. **Combo multiplier.** Reward consecutive hits. Acceptance: each hit within two
+20. **Combo multiplier.** Reward consecutive hits. Acceptance: each hit within two
     seconds of the last raises the multiplier by one; a miss or timeout resets it.
-13. **Ammo limit.** Limit shots to ten that refill slowly. Acceptance: firing stops
+21. **Ammo limit.** Limit shots to ten that refill slowly. Acceptance: firing stops
     at zero, one shot returns every half second and the count is displayed.
-14. **Shield power-up.** Spawn an occasional green pickup. Acceptance: collecting it
+22. **Shield power-up.** Spawn an occasional green pickup. Acceptance: collecting it
     makes the player survive the next target contact, shown by a visible outline.
-15. **Rapid-fire power-up.** Spawn an occasional pickup that doubles fire rate.
+23. **Rapid-fire power-up.** Spawn an occasional pickup that doubles fire rate.
     Acceptance: the effect lasts five seconds and a countdown shows its remaining time.
-16. **Screen shake.** Shake the play area on game over. Acceptance: shaking lasts
+24. **Screen shake.** Shake the play area on game over. Acceptance: shaking lasts
     under half a second and does not change logical positions or collisions.
-17. **Starfield background.** Draw small dots scrolling left at different speeds.
+25. **Starfield background.** Draw small dots scrolling left at different speeds.
     Acceptance: dots wrap around continuously and are drawn behind everything else.
-18. **Wavy targets.** Make some targets move in a sine wave. Acceptance: they stay
+26. **Wavy targets.** Make some targets move in a sine wave. Acceptance: they stay
     inside the vertical bounds and still disappear after passing the left edge.
-19. **Target that shoots back.** Add a target that fires left at the player.
+27. **Target that shoots back.** Add a target that fires left at the player.
     Acceptance: its shots end the game on contact and can be destroyed by projectiles.
-20. **Accuracy stat.** Show hits divided by shots on game over. Acceptance: it shows
+28. **Accuracy stat.** Show hits divided by shots on game over. Acceptance: it shows
     as a whole percentage, reads 0% with no shots and resets on restart.
-21. **Keyboard remapping.** Let players choose alternative fire keys. Acceptance:
+29. **Keyboard remapping.** Let players choose alternative fire keys. Acceptance:
     the chosen key fires, Space still works and the choice survives reload.
-22. **High-contrast mode.** Add a toggle for a high-contrast palette. Acceptance:
+30. **High-contrast mode.** Add a toggle for a high-contrast palette. Acceptance:
     all objects and text remain distinguishable and the toggle survives reload.
-23. **Pause on blur.** Pause automatically when the window loses focus. Acceptance:
+31. **Pause on blur.** Pause automatically when the window loses focus. Acceptance:
     returning shows a paused state and the game resumes only after a key press.
-24. **Leaderboard.** Keep the top five local scores with initials. Acceptance:
+32. **Leaderboard.** Keep the top five local scores with initials. Acceptance:
     a qualifying score asks for three letters and the list survives reload.
-25. **Debug overlay.** Toggle hitboxes and an FPS readout with a key. Acceptance:
+33. **Debug overlay.** Toggle hitboxes and an FPS readout with a key. Acceptance:
     the overlay draws rectangle outlines and counts without changing gameplay.
-26. **Bomb.** Press B to clear all targets on screen once per game. Acceptance:
+34. **Bomb.** Press B to clear all targets on screen once per game. Acceptance:
     cleared targets score normally and the bomb indicator disappears after use.
-27. **Charged shot.** Holding Space for one second fires a larger projectile.
+35. **Charged shot.** Holding Space for one second fires a larger projectile.
     Acceptance: it passes through targets, destroying each one it touches.
-28. **Spread shot power-up.** Add a pickup that fires three projectiles at once.
+36. **Spread shot power-up.** Add a pickup that fires three projectiles at once.
     Acceptance: shots angle up, straight and down for five seconds.
-29. **Player trail.** Draw fading copies behind the player while moving.
+37. **Player trail.** Draw fading copies behind the player while moving.
     Acceptance: the trail vanishes when still and never affects collisions.
-30. **Target health bars.** Show remaining hits above multi-hit targets.
+38. **Target health bars.** Show remaining hits above multi-hit targets.
     Acceptance: the bar shrinks on each hit and disappears with the target.
-31. **Boss target.** Spawn a large target every 30 points. Acceptance: it needs
+39. **Boss target.** Spawn a large target every 30 points. Acceptance: it needs
     twenty hits, normal spawns pause while it lives and destroying it scores ten.
-32. **Level counter.** Advance a level every 10 points. Acceptance: the level shows
+40. **Level counter.** Advance a level every 10 points. Acceptance: the level shows
     on screen, a brief "Level N" banner appears and restart returns to level 1.
-33. **Obstacles.** Add grey blocks that scroll left and cannot be destroyed.
+41. **Obstacles.** Add grey blocks that scroll left and cannot be destroyed.
     Acceptance: projectiles stop on them and touching one ends the game.
-34. **Slow-motion power-up.** Add a pickup that halves target speed. Acceptance:
+42. **Slow-motion power-up.** Add a pickup that halves target speed. Acceptance:
     the effect lasts five seconds and the player and projectiles move normally.
-35. **Magnet pickups.** Make power-ups drift towards a nearby player. Acceptance:
+43. **Magnet pickups.** Make power-ups drift towards a nearby player. Acceptance:
     pickups within 120 units move towards the player; others travel normally.
-36. **Projectile recoil.** Nudge the player slightly left on each shot. Acceptance:
+44. **Projectile recoil.** Nudge the player slightly left on each shot. Acceptance:
     recoil never pushes the player outside the play area.
-37. **Edge wrap mode.** Add an option for vertical screen wrap. Acceptance: moving
+45. **Edge wrap mode.** Add an option for vertical screen wrap. Acceptance: moving
     off the top appears at the bottom and vice versa; the default stays bounded.
-38. **Game over summary.** Show score, time, hits and best on game over.
+46. **Game over summary.** Show score, time, hits and best on game over.
     Acceptance: every value matches the finished game and restart hides it.
-39. **Countdown restart.** Show 3, 2, 1 before play resumes after restart.
+47. **Countdown restart.** Show 3, 2, 1 before play resumes after restart.
     Acceptance: nothing moves or spawns during the countdown.
-40. **Speed boost.** Hold Shift to move faster for a limited time. Acceptance:
+48. **Speed boost.** Hold Shift to move faster for a limited time. Acceptance:
     a meter drains while boosting and refills when Shift is released.
-41. **Seeded spawns.** Add a seed setting for target spawn positions. Acceptance:
+49. **Seeded spawns.** Add a seed setting for target spawn positions. Acceptance:
     the same seed produces the same spawn sequence across reloads.
-42. **Target colours by speed.** Colour faster targets differently. Acceptance:
+50. **Target colours by speed.** Colour faster targets differently. Acceptance:
     at least three speed bands map to distinct colours visible in both themes.
-43. **Hit flash.** Flash targets white briefly when hit but not destroyed.
+51. **Hit flash.** Flash targets white briefly when hit but not destroyed.
     Acceptance: the flash lasts under 0.2 seconds and does not change behaviour.
-44. **Gamepad support.** Allow a connected gamepad to move and fire. Acceptance:
+52. **Gamepad support.** Allow a connected gamepad to move and fire. Acceptance:
     the left stick and D-pad move, a face button fires and keyboard still works.
-45. **Reduced motion.** Respect the system reduced-motion setting. Acceptance:
+53. **Reduced motion.** Respect the system reduced-motion setting. Acceptance:
     shake, trails and flashing effects are disabled while gameplay is unchanged.
